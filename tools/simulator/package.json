@@ -1,0 +1,23 @@
+{
+  "name": "@vanepoint/simulator",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A command-line phone that speaks the Vanepoint protocol — pair, reconnect and send scripted input without a real phone.",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "vanepoint-sim": "src/cli.ts"
+  },
+  "scripts": {
+    "start": "tsx src/cli.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@vanepoint/core": "*"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0"
+  }
+}

@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Questions & ideas
+    url: https://github.com/vanepoint-hq/vanepoint/discussions
+    about: Ask questions and discuss ideas with the community.
+  - name: Report a security vulnerability
+    url: https://github.com/vanepoint-hq/vanepoint/security/advisories/new
+    about: Please report security issues privately.

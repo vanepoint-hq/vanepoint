@@ -1,0 +1,43 @@
+{
+  "$schema": "./schema/profile.schema.json",
+  "schema": 1,
+  "id": "apple.keynote",
+  "name": "Keynote",
+  "version": "0.1.0",
+  "authors": ["Vanepoint contributors"],
+  "description": "Play, navigate and blank the screen in Apple Keynote.",
+  "match": {
+    "macos": { "bundleId": "com.apple.iWork.Keynote" }
+  },
+  "actions": {
+    "play": { "kind": "key", "chord": ["Alt", "Meta", "KeyP"] },
+    "next": { "kind": "key", "chord": ["ArrowRight"] },
+    "previous": { "kind": "key", "chord": ["ArrowLeft"] },
+    "black_screen": { "kind": "key", "chord": ["KeyB"] },
+    "white_screen": { "kind": "key", "chord": ["KeyW"] },
+    "end_show": { "kind": "key", "chord": ["Escape"], "confirm": true },
+    "laser": { "kind": "builtin", "name": "laser_toggle" },
+    "spotlight": { "kind": "builtin", "name": "spotlight_toggle" }
+  },
+  "surfaces": [
+    {
+      "mode": "present",
+      "controls": [
+        { "type": "button", "label": "Next", "action": "next", "haptic": "click", "emphasis": "primary", "span": 4 },
+        { "type": "swipe", "left": "next", "right": "previous" },
+        { "type": "button", "label": "Laser", "icon": "laser", "action": "laser", "span": 2 },
+        { "type": "button", "label": "Spotlight", "icon": "circle-dot", "action": "spotlight", "span": 2 }
+      ]
+    },
+    {
+      "mode": "buttons",
+      "title": "Show controls",
+      "controls": [
+        { "type": "button", "label": "Play", "icon": "play", "action": "play", "haptic": "success", "span": 4 },
+        { "type": "button", "label": "Black", "icon": "moon", "action": "black_screen", "span": 2 },
+        { "type": "button", "label": "White", "icon": "sun", "action": "white_screen", "span": 2 },
+        { "type": "button", "label": "End show", "icon": "x", "action": "end_show", "emphasis": "danger", "span": 4 }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+name: Feature request
+description: Suggest an idea or improvement
+title: "[Feature]: "
+labels: ["enhancement", "needs-triage"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem does this solve?
+      description: Describe the situation and why current behaviour falls short.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+  - type: dropdown
+    id: persona
+    attributes:
+      label: Who benefits most?
+      multiple: true
+      options:
+        - Presenters / lecturers
+        - Video & audio editors
+        - Designers & illustrators
+        - Developers
+        - Accessibility users
+        - Everyone
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: Scope check
+      options:
+        - label: This fits Vanepoint's scope (see "Not planned" in ROADMAP.md)
+          required: true

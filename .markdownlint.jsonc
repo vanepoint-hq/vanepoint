@@ -1,0 +1,10 @@
+{
+  // Long lines are fine in prose and tables.
+  "MD013": false,
+  // README uses inline HTML for the centred header and badges.
+  "MD033": false,
+  // README starts with an HTML banner instead of an H1.
+  "MD041": false,
+  // Allow duplicate headings under different parents (e.g. "Exit criteria").
+  "MD024": { "siblings_only": true }
+}

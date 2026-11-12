@@ -1,0 +1,29 @@
+cff-version: 1.2.0
+message: "If you use Vanepoint or build on its design, please cite it as below."
+title: "Vanepoint: A Low-Latency, Haptic, Multi-Modal Smartphone Input System for Laptops"
+type: software
+authors:
+  - family-names: Kapoor
+    given-names: Shourya
+    affiliation: "Trinity College Dublin"
+repository-code: "https://github.com/vanepoint-hq/vanepoint"
+license: MIT
+version: 0.1.0
+date-released: 2026-11-11
+keywords:
+  - human-computer interaction
+  - input devices
+  - smartphone
+  - air mouse
+  - haptics
+  - latency
+preferred-citation:
+  type: report
+  title: "Vanepoint: A Low-Latency, Haptic, Multi-Modal Smartphone Input System for Laptops"
+  authors:
+    - family-names: Kapoor
+      given-names: Shourya
+      affiliation: "Trinity College Dublin"
+  year: 2026
+  notes: "Preprint. Design and pre-registered evaluation protocol."
+  url: "https://github.com/vanepoint-hq/vanepoint/blob/main/docs/paper/Vanepoint-Paper.pdf"

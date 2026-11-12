@@ -1,0 +1,74 @@
+name: Bug report
+description: Something isn't working as expected
+title: "[Bug]: "
+labels: ["bug", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a bug. **Security issues must not be reported here** — see SECURITY.md.
+  - type: dropdown
+    id: component
+    attributes:
+      label: Component
+      options:
+        - Mobile app
+        - Desktop app
+        - Pairing / connection
+        - Input (cursor, keyboard)
+        - Haptics
+        - App profiles
+        - Documentation
+    validations:
+      required: true
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Describe the bug and what you expected instead.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Pair phone with desktop
+        2. Switch to Air Pointer
+        3. ...
+    validations:
+      required: true
+  - type: input
+    id: phone
+    attributes:
+      label: Phone model and OS version
+      placeholder: "iPhone 15, iOS 19.1"
+    validations:
+      required: true
+  - type: input
+    id: computer
+    attributes:
+      label: Computer and OS version
+      placeholder: "MacBook Air M3, macOS 16.1"
+    validations:
+      required: true
+  - type: dropdown
+    id: transport
+    attributes:
+      label: Connection type
+      options:
+        - Wi-Fi (home router)
+        - Wi-Fi (work / campus / venue)
+        - Laptop hotspot
+        - Bluetooth LE
+        - Not sure
+  - type: input
+    id: version
+    attributes:
+      label: Vanepoint version or commit
+  - type: textarea
+    id: logs
+    attributes:
+      label: Diagnostics log
+      description: Export from Settings → Diagnostics. Review it before pasting — it contains device names.
+      render: text

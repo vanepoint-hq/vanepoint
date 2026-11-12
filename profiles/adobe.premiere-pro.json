@@ -1,0 +1,60 @@
+{
+  "$schema": "./schema/profile.schema.json",
+  "schema": 1,
+  "id": "adobe.premiere-pro",
+  "name": "Premiere Pro",
+  "version": "0.1.0",
+  "authors": ["Vanepoint contributors"],
+  "description": "Frame-accurate scrubbing on the dial plus J/K/L shuttle, marks and edits for Adobe Premiere Pro (default keyboard layout).",
+  "match": {
+    "macos": { "bundleId": "com.adobe.PremierePro" },
+    "windows": { "exe": "Adobe Premiere Pro.exe" }
+  },
+  "actions": {
+    "frame_forward": { "kind": "key", "chord": ["ArrowRight"] },
+    "frame_back": { "kind": "key", "chord": ["ArrowLeft"] },
+    "next_edit": { "kind": "key", "chord": ["ArrowDown"] },
+    "previous_edit": { "kind": "key", "chord": ["ArrowUp"] },
+    "shuttle_back": { "kind": "key", "chord": ["KeyJ"] },
+    "stop": { "kind": "key", "chord": ["KeyK"] },
+    "shuttle_forward": { "kind": "key", "chord": ["KeyL"] },
+    "play_pause": { "kind": "key", "chord": ["Space"] },
+    "mark_in": { "kind": "key", "chord": ["KeyI"] },
+    "mark_out": { "kind": "key", "chord": ["KeyO"] },
+    "add_edit": { "kind": "key", "macos": ["Meta", "KeyK"], "windows": ["Control", "KeyK"] },
+    "zoom_in": { "kind": "key", "chord": ["Equal"] },
+    "zoom_out": { "kind": "key", "chord": ["Minus"] }
+  },
+  "surfaces": [
+    {
+      "mode": "dial",
+      "title": "Scrub",
+      "controls": [
+        { "type": "dial", "label": "Frames", "cw": "frame_forward", "ccw": "frame_back", "detentsPerTurn": 24, "accelerate": true },
+        { "type": "button", "label": "Play", "icon": "play", "action": "play_pause", "emphasis": "primary", "span": 2 },
+        { "type": "button", "label": "Cut", "icon": "scissors", "action": "add_edit", "haptic": "click_strong", "span": 2 }
+      ]
+    },
+    {
+      "mode": "buttons",
+      "title": "Edit",
+      "controls": [
+        { "type": "button", "label": "J", "action": "shuttle_back" },
+        { "type": "button", "label": "K", "action": "stop" },
+        { "type": "button", "label": "L", "action": "shuttle_forward" },
+        { "type": "button", "label": "Cut", "icon": "scissors", "action": "add_edit", "haptic": "click_strong" },
+        { "type": "button", "label": "In", "action": "mark_in", "span": 2 },
+        { "type": "button", "label": "Out", "action": "mark_out", "span": 2 },
+        { "type": "button", "label": "Prev edit", "action": "previous_edit", "span": 2 },
+        { "type": "button", "label": "Next edit", "action": "next_edit", "span": 2 }
+      ]
+    },
+    {
+      "mode": "dial",
+      "title": "Timeline zoom",
+      "controls": [
+        { "type": "dial", "label": "Zoom", "cw": "zoom_in", "ccw": "zoom_out", "detentsPerTurn": 12 }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "$schema": "./schema/profile.schema.json",
+  "schema": 1,
+  "id": "microsoft.powerpoint",
+  "name": "PowerPoint",
+  "version": "0.1.0",
+  "authors": ["Vanepoint contributors"],
+  "description": "Slide navigation, blackout/whiteout and Vanepoint's laser for Microsoft PowerPoint slide shows.",
+  "match": {
+    "macos": { "bundleId": "com.microsoft.Powerpoint" },
+    "windows": { "exe": "POWERPNT.EXE" }
+  },
+  "actions": {
+    "next": { "kind": "key", "chord": ["ArrowRight"] },
+    "previous": { "kind": "key", "chord": ["ArrowLeft"] },
+    "start_beginning": { "kind": "key", "macos": ["Meta", "Shift", "Enter"], "windows": ["F5"] },
+    "start_current": { "kind": "key", "macos": ["Meta", "Enter"], "windows": ["Shift", "F5"] },
+    "black_screen": { "kind": "key", "chord": ["KeyB"] },
+    "white_screen": { "kind": "key", "chord": ["KeyW"] },
+    "first_slide": { "kind": "key", "chord": ["Home"] },
+    "last_slide": { "kind": "key", "chord": ["End"] },
+    "end_show": { "kind": "key", "chord": ["Escape"], "confirm": true },
+    "laser": { "kind": "builtin", "name": "laser_toggle" }
+  },
+  "surfaces": [
+    {
+      "mode": "present",
+      "controls": [
+        { "type": "button", "label": "Next", "action": "next", "haptic": "click", "emphasis": "primary", "span": 4 },
+        { "type": "swipe", "left": "next", "right": "previous" },
+        { "type": "button", "label": "Previous", "action": "previous", "haptic": "click", "span": 2 },
+        { "type": "button", "label": "Laser", "icon": "laser", "action": "laser", "haptic": "click", "span": 2 }
+      ]
+    },
+    {
+      "mode": "buttons",
+      "title": "Show controls",
+      "controls": [
+        { "type": "button", "label": "Start", "icon": "play", "action": "start_beginning", "haptic": "success", "span": 2 },
+        { "type": "button", "label": "From here", "icon": "play-circle", "action": "start_current", "span": 2 },
+        { "type": "button", "label": "Black", "icon": "moon", "action": "black_screen" },
+        { "type": "button", "label": "White", "icon": "sun", "action": "white_screen" },
+        { "type": "button", "label": "First", "icon": "skip-back", "action": "first_slide" },
+        { "type": "button", "label": "Last", "icon": "skip-forward", "action": "last_slide" },
+        { "type": "button", "label": "End show", "icon": "x", "action": "end_show", "emphasis": "danger", "span": 4 }
+      ]
+    }
+  ]
+}

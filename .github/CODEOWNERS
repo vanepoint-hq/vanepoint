@@ -1,0 +1,7 @@
+# Default owners for everything in the repo.
+# Replace with your GitHub handle or a team, e.g. @vanepoint-hq/maintainers
+*                       @vanepoint-hq/maintainers
+
+/docs/PROTOCOL.md       @vanepoint-hq/maintainers
+/SECURITY.md            @vanepoint-hq/maintainers
+/profiles/              @vanepoint-hq/maintainers

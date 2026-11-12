@@ -1,0 +1,19 @@
+[package]
+name = "vanepoint-input"
+description = "Vanepoint OS input injection behind a small trait (native via enigo, or recording for tests)"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+authors.workspace = true
+
+[features]
+default = ["native"]
+native = ["dep:enigo"]
+
+[dependencies]
+serde.workspace = true
+serde_json.workspace = true
+thiserror.workspace = true
+log.workspace = true
+enigo = { workspace = true, optional = true }

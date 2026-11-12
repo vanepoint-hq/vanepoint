@@ -1,0 +1,30 @@
+name: App profile request
+description: Ask for (or volunteer to build) a profile for a specific app
+title: "[Profile]: "
+labels: ["profile", "good first issue"]
+body:
+  - type: input
+    id: app
+    attributes:
+      label: Application name
+      placeholder: "DaVinci Resolve"
+    validations:
+      required: true
+  - type: input
+    id: identifiers
+    attributes:
+      label: Bundle ID (macOS) / executable name (Windows), if known
+      placeholder: "com.blackmagic-design.DaVinciResolve / Resolve.exe"
+  - type: textarea
+    id: controls
+    attributes:
+      label: Controls you want on the phone
+      description: Which shortcuts, dials, or buttons matter most?
+    validations:
+      required: true
+  - type: checkboxes
+    id: volunteer
+    attributes:
+      label: Contribution
+      options:
+        - label: I'd like to build this profile myself

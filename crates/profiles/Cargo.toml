@@ -1,0 +1,21 @@
+[package]
+name = "vanepoint-profiles"
+description = "Vanepoint app profiles: loading, focused-app matching and safe action resolution"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+authors.workspace = true
+
+[dependencies]
+vanepoint-input.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+indexmap.workspace = true
+thiserror.workspace = true
+log.workspace = true
+regex = "1"
+active-win-pos-rs.workspace = true
+
+[target.'cfg(target_os = "macos")'.dependencies]
+plist = "1"

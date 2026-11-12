@@ -1,0 +1,29 @@
+{
+  "name": "vanepoint",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Turn your phone into a low-latency air mouse, presenter remote, trackball and precision dial for your laptop.",
+  "license": "MIT",
+  "workspaces": [
+    "packages/*",
+    "tools/*",
+    "apps/desktop"
+  ],
+  "scripts": {
+    "test": "npm run test:core && npm run test:rust",
+    "test:core": "npm run test -w @vanepoint/core",
+    "test:rust": "cargo test --workspace --exclude vanepoint-desktop",
+    "typecheck": "npm run typecheck -w @vanepoint/core && npm run typecheck -w @vanepoint/simulator && npm run typecheck -w @vanepoint/desktop",
+    "e2e": "node tools/e2e/run.mjs",
+    "agent": "cargo run -p vanepoint-agent --bin vanepoint-headless --",
+    "simulate": "tsx tools/simulator/src/cli.ts",
+    "desktop:dev": "npm run tauri -w @vanepoint/desktop -- dev",
+    "desktop:build": "npm run tauri -w @vanepoint/desktop -- build",
+    "mobile:install": "npm install --prefix apps/mobile",
+    "mobile:dev": "npm run start --prefix apps/mobile",
+    "lint:md": "npx --yes markdownlint-cli2@0.13.0 \"**/*.md\" \"#**/node_modules\" \"#**/target\""
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

@@ -1,0 +1,46 @@
+[workspace]
+resolver = "2"
+members = ["crates/*", "apps/desktop/src-tauri"]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+repository = "https://github.com/vanepoint-hq/vanepoint"
+authors = ["Vanepoint contributors"]
+
+[workspace.dependencies]
+vanepoint-protocol = { path = "crates/protocol" }
+vanepoint-session = { path = "crates/session" }
+vanepoint-physics = { path = "crates/physics" }
+vanepoint-input = { path = "crates/input", default-features = false }
+vanepoint-profiles = { path = "crates/profiles" }
+vanepoint-agent = { path = "crates/agent" }
+
+anyhow = "1"
+thiserror = "2"
+serde = { version = "1", features = ["derive"] }
+serde_json = { version = "1", features = ["preserve_order"] }
+indexmap = { version = "2", features = ["serde"] }
+base64 = "0.22"
+hex = "0.4"
+rand = "0.8"
+log = "0.4"
+env_logger = "0.11"
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "net", "sync", "time", "io-util", "signal"] }
+tokio-tungstenite = "0.26"
+futures-util = { version = "0.3", default-features = false, features = ["sink", "std"] }
+snow = "=0.9.6"
+blake2s_simd = "1"
+enigo = "0.2"
+active-win-pos-rs = "0.9"
+local-ip-address = "0.6"
+mdns-sd = "0.13"
+dirs = "5"
+clap = { version = "4", features = ["derive"] }
+qrcode = { version = "0.14", default-features = false }
+
+[profile.release]
+lto = "thin"
+codegen-units = 1
+strip = true

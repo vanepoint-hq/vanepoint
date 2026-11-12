@@ -1,0 +1,38 @@
+[package]
+name = "vanepoint-agent"
+description = "Vanepoint desktop agent: WebSocket server, pairing, sessions, physics and input engine"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+authors.workspace = true
+
+[features]
+default = ["native", "mdns"]
+native = ["vanepoint-input/native"]
+mdns = ["dep:mdns-sd"]
+
+[dependencies]
+vanepoint-protocol.workspace = true
+vanepoint-session.workspace = true
+vanepoint-physics.workspace = true
+vanepoint-input.workspace = true
+vanepoint-profiles.workspace = true
+anyhow.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+log.workspace = true
+env_logger.workspace = true
+tokio.workspace = true
+tokio-tungstenite.workspace = true
+futures-util.workspace = true
+local-ip-address.workspace = true
+mdns-sd = { workspace = true, optional = true }
+dirs.workspace = true
+clap.workspace = true
+qrcode.workspace = true
+hex.workspace = true
+
+[[bin]]
+name = "vanepoint-headless"
+path = "src/bin/headless.rs"
