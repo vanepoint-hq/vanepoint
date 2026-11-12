@@ -1,5 +1,5 @@
 //! The input engine: a dedicated thread that owns the OS input sink and the physics
-//! integrator, stepping at the display rate (paper §IV-C).
+//! integrator, stepping at the display rate (see docs/ARCHITECTURE.md, "The input path").
 //!
 //! Running on its own thread keeps platform input APIs (which are not always `Send`) off the
 //! async runtime and gives the integrator a steady clock independent of network jitter.

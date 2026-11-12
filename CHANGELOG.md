@@ -25,5 +25,4 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Design system: colour, typography, motion, and haptic vocabulary (`docs/DESIGN_SYSTEM.md`).
 - App profile JSON Schema and first-party example profiles.
 - Architecture Decision Records 0001–0003.
-- Research paper: *Vanepoint: A Low-Latency, Haptic, Multi-Modal Smartphone Input System for Laptops* (design and pre-registered evaluation protocol).
 - Community health files: contributing guide, code of conduct, security policy, privacy policy, governance.

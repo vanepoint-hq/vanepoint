@@ -39,5 +39,5 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
       - run: npx --yes ajv-cli@5 validate --spec=draft2020 -s profiles/schema/profile.schema.json -d "profiles/*.json"

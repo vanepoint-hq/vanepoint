@@ -6,7 +6,7 @@ This guide takes you from a fresh clone to moving your computer's cursor with yo
 
 | Tool | Version | Needed for |
 | --- | --- | --- |
-| Node.js | 20 or later | Everything JavaScript (core, simulator, desktop UI, mobile app) |
+| Node.js | 22 or later (the simulator uses Node's built-in WebSocket) | Everything JavaScript (core, simulator, desktop UI, mobile app) |
 | Rust | stable, via [rustup](https://rustup.rs) | Desktop agent and app |
 | Windows | Visual Studio 2022 Build Tools ("Desktop development with C++") and WebView2 (preinstalled on Windows 10/11) | Building the desktop app |
 | macOS | Xcode Command Line Tools | Building the desktop app |

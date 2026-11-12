@@ -55,7 +55,7 @@ Progress is tracked on the [project board](https://github.com/vanepoint-hq/vanep
 
 - BLE motion-to-injection **p95 ≤ 45 ms**
 - Transport hand-over without a visible cursor jump
-- ISO 9241-411 pointing study completed (paper Section XI)
+- ISO 9241-411 pointing study completed
 
 ## Phase 3 — Intelligence & ecosystem
 

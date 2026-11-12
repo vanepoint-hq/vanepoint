@@ -1,4 +1,4 @@
-//! Desktop-side motion integration (paper §IV-C, §V-C).
+//! Desktop-side motion integration (see docs/ARCHITECTURE.md, "The input path").
 //!
 //! The phone sends velocities; the desktop integrates them at the display rate so network
 //! jitter never shows up as cursor stutter. A velocity expires after a short TTL, so the

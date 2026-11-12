@@ -1,5 +1,5 @@
 // Motion processing for the phone: 1€ filter, gravity-referenced pointing frame,
-// pointer acceleration, release-velocity estimation and dial tracking (paper §V–VI).
+// pointer acceleration, release-velocity estimation and dial tracking (see docs/ARCHITECTURE.md).
 
 export type Vec3 = [number, number, number];
 
@@ -182,7 +182,7 @@ export function touchGain(speedPtPerSec: number, max = 2.6): number {
 }
 
 // ------------------------------------------------------------------ release velocity
-/** Least-squares velocity over the most recent window of touch samples (paper Eq. 4). */
+/** Least-squares velocity over the most recent window of touch samples. */
 export class ReleaseVelocityEstimator {
   private samples: { t: number; x: number; y: number }[] = [];
 
@@ -232,7 +232,7 @@ export function wrapAngle(a: number): number {
   return x;
 }
 
-/** Accumulates rotation and reports whole detents crossed (paper Eqs. 6–7). */
+/** Accumulates rotation and reports whole detents crossed. */
 export class DialTracker {
   private last: number | null = null;
   private accumulated = 0;

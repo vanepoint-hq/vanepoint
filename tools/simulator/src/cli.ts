@@ -64,6 +64,9 @@ function desktopOf(s: State): DesktopRecord {
 }
 
 const createSocket = (url: string) => {
+  if (typeof WebSocket === 'undefined') {
+    throw new Error(`The simulator needs Node.js 22 or later (built-in WebSocket). You are running ${process.version}.`);
+  }
   const ws = new WebSocket(url);
   return ws as unknown as WebSocketLike;
 };

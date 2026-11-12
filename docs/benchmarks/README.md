@@ -8,4 +8,4 @@ Each benchmark run will include:
 - the raw timestamp logs (CSV),
 - the analysis notebook that produced every published number.
 
-Until then, the targets in the [README](../../README.md#-performance-targets) are **design goals, not measurements**. The measurement method is described in Section XI of the [research paper](../paper/Vanepoint-Paper.pdf).
+Until then, the targets in the [README](../../README.md#-performance-targets) are **design goals, not measurements**. The planned method: a phone on a servo-driven rotation stage, a photodiode on the display, and software timestamps with clock-offset estimation, over 10,000 samples per network type.

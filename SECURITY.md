@@ -33,8 +33,6 @@ We follow coordinated disclosure and will credit reporters in the advisory and r
 
 ## Threat model
 
-The full analysis is in Section VIII of the [research paper](docs/paper/Vanepoint-Paper.pdf). Summary:
-
 ### Assets
 
 1. **Input control** of the paired computer (keyboard, mouse, shortcuts).

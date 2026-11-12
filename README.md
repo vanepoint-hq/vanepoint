@@ -12,7 +12,6 @@
   <img alt="Status: v0.1 developer preview" src="https://img.shields.io/badge/status-v0.1%20preview-F5A524?style=flat-square">
   <img alt="Platforms" src="https://img.shields.io/badge/platforms-iOS%20%7C%20Android%20%7C%20macOS%20%7C%20Windows-0B0B12?style=flat-square">
   <a href="CONTRIBUTING.md"><img alt="PRs welcome" src="https://img.shields.io/badge/PRs-welcome-3DD68C?style=flat-square"></a>
-  <a href="docs/paper/Vanepoint-Paper.pdf"><img alt="Read the paper" src="https://img.shields.io/badge/paper-PDF-B31B1B?style=flat-square"></a>
 </p>
 
 <p>
@@ -21,7 +20,6 @@
   <a href="#-quick-start">Quick start</a> ·
   <a href="#-how-it-works">How it works</a> ·
   <a href="#-roadmap">Roadmap</a> ·
-  <a href="docs/paper/Vanepoint-Paper.pdf">Paper</a> ·
   <a href="CONTRIBUTING.md">Contribute</a>
 </p>
 
@@ -111,11 +109,11 @@ flowchart LR
 - **One crypto layer for every transport.** Pairing uses `Noise_IKpsk1` — the desktop key and a one‑time secret come from the QR code, so the desktop only prompts for approval after the phone proves it saw the *current* code. Reconnects use `Noise_IK` against an explicit trust list. Every frame carries an explicit nonce with a sliding replay window.
 - **Profiles are data, never code.** They can only press keys, click and scroll — no shell or file access — and are validated before use.
 
-Read the full design in [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md), the wire format in [`docs/PROTOCOL.md`](docs/PROTOCOL.md), and the rationale in the [research paper](docs/paper/Vanepoint-Paper.pdf).
+Read the full design in [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md), the wire format in [`docs/PROTOCOL.md`](docs/PROTOCOL.md), and the reasoning behind key decisions in the [ADRs](docs/adr/README.md).
 
 ## ✦ Performance targets
 
-These are **design targets, not measurements**. The analytical model in the paper predicts a median of about 13 ms over Wi‑Fi; measuring it on real hardware is the next milestone, and results will be published in [`docs/benchmarks/`](docs/benchmarks/).
+These are **design targets, not measurements**. A back-of-the-envelope [latency budget](docs/ARCHITECTURE.md#performance-budget) suggests a median of about 13 ms over Wi‑Fi; measuring it on real hardware is the next milestone, and results will be published in [`docs/benchmarks/`](docs/benchmarks/).
 
 | Metric | Wi‑Fi (WebSocket) | Wi‑Fi (UDP) | Bluetooth LE |
 | --- | :---: | :---: | :---: |
@@ -161,24 +159,18 @@ vanepoint/
 │   ├── simulator/        # A command-line phone
 │   └── e2e/              # End-to-end test: real agent vs simulator
 ├── profiles/             # Built-in app profiles + JSON Schema
-└── docs/                 # Architecture, protocol, design system, testing, ADRs, paper
+└── docs/                 # Architecture, protocol, design system, testing, ADRs
 ```
 
 ## ✦ Roadmap
 
-- [x] Concept, architecture, protocol, design system and research paper
+- [x] Concept, architecture, protocol and design system
 - [x] **v0.1** — Pairing, encrypted sessions, Air Pointer, Trackpad, Present + laser, Trackball, Dial, haptics, app profiles, kill switch
 - [ ] **Phase 0 measurements** — Hardware latency rig and published benchmarks
 - [ ] **Phase 2** — UDP and Bluetooth LE transports, more profiles, custom haptic patterns
 - [ ] **Phase 3** — AI profile generator, Gesture Pad, profile registry, Linux
 
 Details and exit criteria live in [`ROADMAP.md`](ROADMAP.md).
-
-## ✦ Research
-
-Vanepoint is documented as a systems paper covering the interaction techniques, signal processing, transport and security design, and a pre‑registered evaluation protocol (latency rig, ISO 9241‑411 pointing study, presenter field study).
-
-📄 **[Read the paper (PDF)](docs/paper/Vanepoint-Paper.pdf)** · [DOCX](docs/paper/Vanepoint-Paper.docx) · [Cite this work](CITATION.cff)
 
 ## ✦ Contributing
 

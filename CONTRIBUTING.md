@@ -13,7 +13,6 @@ Vanepoint is in the **design phase**. Before Phase 0 code lands, these contribut
 | **App profiles** | Add a JSON profile for an app you use daily | [`docs/PROFILES.md`](docs/PROFILES.md) |
 | **Protocol & security review** | Look for flaws in pairing, replay protection, transport selection | [`docs/PROTOCOL.md`](docs/PROTOCOL.md), [`SECURITY.md`](SECURITY.md) |
 | **Design review** | Critique layouts, haptics, onboarding, accessibility | [`docs/DESIGN_SYSTEM.md`](docs/DESIGN_SYSTEM.md) |
-| **Research** | Improve the evaluation protocol, suggest related work | [`docs/paper/`](docs/paper/) |
 | **Platform expertise** | Input injection, BLE, mDNS quirks on specific OS versions | [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) |
 
 ## Ways to contribute
@@ -50,7 +49,7 @@ The full walkthrough is in [`docs/TESTING.md`](docs/TESTING.md).
 
 | Tool | Version | Used for |
 | --- | --- | --- |
-| Node.js | 20 LTS or later | Mobile app, desktop UI, shared packages |
+| Node.js | 22 LTS or later | Mobile app, desktop UI, shared packages |
 | Rust | stable (via `rustup`) | Desktop core, protocol, transport crates |
 | Expo Go (phone) / EAS | latest | Run the mobile app without building it; EAS for store builds (no Mac required) |
 | Xcode | latest | Only for local iOS or macOS desktop builds |
@@ -77,7 +76,7 @@ fix(transport): drop stale UDP packets outside the replay window
 docs(protocol): clarify motion packet byte order
 ```
 
-Types: `feat`, `fix`, `docs`, `refactor`, `perf`, `test`, `build`, `ci`, `chore`. Scopes: `mobile`, `desktop`, `protocol`, `transport`, `input`, `motion`, `profiles`, `docs`, `paper`.
+Types: `feat`, `fix`, `docs`, `refactor`, `perf`, `test`, `build`, `ci`, `chore`. Scopes: `mobile`, `desktop`, `protocol`, `transport`, `input`, `motion`, `profiles`, `docs`.
 
 ### Branches
 
@@ -112,6 +111,6 @@ git commit -s -m "feat(motion): add 1€ filter"
 
 ## Recognition
 
-Every merged contributor is added to the contributors list. Significant contributions to the research are acknowledged in the paper.
+Every merged contributor is added to the contributors list.
 
 Thank you for helping build Vanepoint!

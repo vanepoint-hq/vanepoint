@@ -40,5 +40,4 @@ for (const [p, s] of hits) {
 console.log(`\n${hits.length} files ${flag === '--apply' ? 'updated' : 'would change'}. ${flag === '--apply' ? '' : 'Run again with --apply to make the changes.'}`);
 if (flag === '--apply') {
   console.log('Also: run "python assets/src/make_assets.py" to refresh the social preview image (it shows the URL).');
-  console.log('The paper PDF/DOCX still mention github.com/vanepoint-hq; edit the DOCX title note in Word and re-export the PDF.');
 }
