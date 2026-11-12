@@ -38,6 +38,9 @@ pub struct AgentConfig {
     pub advertise_mdns: bool,
     /// Watch the focused application and switch profiles.
     pub watch_focus: bool,
+    /// Addresses to put in the pairing QR code instead of the detected LAN addresses
+    /// (e.g. `127.0.0.1` for tests on machines whose LAN interfaces are firewalled).
+    pub advertise_hosts: Option<Vec<String>>,
 }
 
 impl AgentConfig {
@@ -61,6 +64,7 @@ impl Default for AgentConfig {
             pairing_ttl: Duration::from_secs(120),
             advertise_mdns: true,
             watch_focus: true,
+            advertise_hosts: None,
         }
     }
 }
@@ -287,7 +291,7 @@ impl Agent {
         let i = &self.inner;
         let secret = random_secret();
         let expires_at = vanepoint_session::now_secs() + i.config.pairing_ttl.as_secs();
-        let mut hosts = net::local_addresses();
+        let mut hosts = i.config.advertise_hosts.clone().unwrap_or_else(net::local_addresses);
         if hosts.is_empty() {
             hosts = i.addresses.clone();
         }

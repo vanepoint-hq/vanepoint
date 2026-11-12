@@ -26,7 +26,7 @@ console.log('Building vanepoint-headless…');
 const build = spawnSync(cargo, ['build', '-q', '-p', 'vanepoint-agent', '--bin', 'vanepoint-headless'], { cwd: root, stdio: 'inherit', shell: isWin });
 if (build.status !== 0) process.exit(build.status ?? 1);
 
-const agent = spawn(exe, ['--port', '0', '--dry-run', '--auto-approve', '--pair', '--json', '--no-focus', '--name', 'E2E Desktop', '--data-dir', join(tmp, 'agent')], { cwd: root, stdio: ['pipe', 'pipe', 'pipe'] });
+const agent = spawn(exe, ['--port', '0', '--dry-run', '--auto-approve', '--pair', '--json', '--no-focus', '--host', '127.0.0.1', '--name', 'E2E Desktop', '--data-dir', join(tmp, 'agent')], { cwd: root, stdio: ['pipe', 'pipe', 'pipe'] });
 const events = [];
 let uri = null;
 const waiters = [];
@@ -66,7 +66,8 @@ try {
 
   const p = sim(['pair-and-run', uri, '--script', 'e2e']);
   const paired = p.lines.find((l) => l.type === 'paired');
-  check('phone paired with Noise IKpsk1', p.status === 0 && !!paired, paired ? `${paired.desktop} via ${paired.host}` : p.stderr.slice(0, 400));
+  check('phone paired with Noise IKpsk1', p.status === 0 && !!paired, paired ? `${paired.desktop} via ${paired.host}` : (p.lines.find((l) => l.type === 'error')?.message ?? p.stderr).slice(0, 400));
+  if (!paired) console.error(`--- agent log ---\n${agentLog.slice(-1500)}`);
   await new Promise((r) => setTimeout(r, 600));
 
   const ev = input();

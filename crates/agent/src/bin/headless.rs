@@ -45,6 +45,9 @@ struct Args {
     /// Do not watch the focused application for profile switching.
     #[arg(long)]
     no_focus: bool,
+    /// Address to advertise in the pairing code (repeatable). Defaults to this machine's LAN addresses.
+    #[arg(long = "host")]
+    hosts: Vec<String>,
 }
 
 fn print_qr(uri: &str) {
@@ -73,6 +76,7 @@ async fn main() -> anyhow::Result<()> {
         auto_approve: args.auto_approve,
         physics_hz: args.hz,
         watch_focus: !args.no_focus,
+        advertise_hosts: (!args.hosts.is_empty()).then(|| args.hosts.clone()),
         ..AgentConfig::default()
     };
     let dry = args.dry_run;
